@@ -28,7 +28,7 @@ allow if {
 # ----------------------------------------------
 
 # ----------------------------------------------
-# That handle the genaric case of batch operations
+# That handle the generic case of batch operations
 batch contains i if {
 	some i
 	raw_resource := input.action.filterResources[i]
