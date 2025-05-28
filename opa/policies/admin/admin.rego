@@ -8,5 +8,5 @@ allow_admin if {
 }
 
 user_is_admin if {
-	input.context.identity.user = "scott"
+	input.context.identity.user = "admin"
 }
