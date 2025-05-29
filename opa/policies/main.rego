@@ -9,6 +9,7 @@ import data.utils
 import future.keywords.contains
 import future.keywords.if
 import future.keywords.in
+import rbac_data
 
 #  ----------------------------------------------
 # That section handle the policies for the admin user
@@ -16,6 +17,10 @@ allow if {
 	# abac_am.if_user_exists(input.context.identity.user)
 	admin.allow_admin
 	print(input)
+}
+
+allow if {
+	rbac_data.super_user == "scott"
 }
 
 # ----------------------------------------------
