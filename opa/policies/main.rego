@@ -9,7 +9,7 @@ import data.utils
 import future.keywords.contains
 import future.keywords.if
 import future.keywords.in
-import data.rbac_datasdfsdfsdfsdf.rules324234234
+import data.rbac_data
 
 #  ----------------------------------------------
 # That section handle the policies for the admin user
