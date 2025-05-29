@@ -19,10 +19,10 @@ allow if {
 	print(input)
 }
 
-test_data := [{"super_user": "ruslan"}]
+test_data := {rules:[{"super_user": "ruslan"}]}
 
 allow if {
-	input.context.identity.user = test_data[0]["super_user"]
+	input.context.identity.user = test_data.rules[0]["super_user"]
 #rbac_data.rules[0]["super_user"]
 }
 
