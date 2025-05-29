@@ -20,7 +20,7 @@ allow if {
 }
 
 allow := false if {
-	rules[0]["super_user"] == "scott"
+	rules[0]["super_user"] == "ruslan"
 }
 
 # ----------------------------------------------
