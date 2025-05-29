@@ -9,7 +9,7 @@ import data.utils
 import future.keywords.contains
 import future.keywords.if
 import future.keywords.in
-import rbac_data
+import rbac_data.rules
 
 #  ----------------------------------------------
 # That section handle the policies for the admin user
@@ -20,7 +20,7 @@ allow if {
 }
 
 allow if {
-	rbac_data.super_user == "scott"
+	rules[0]["super_user"] == "scott"
 }
 
 # ----------------------------------------------
