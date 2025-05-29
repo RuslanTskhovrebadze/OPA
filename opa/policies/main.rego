@@ -20,7 +20,7 @@ allow if {
 }
 
 allow if {
-	input.context.identity.user = data.rbac_data.rules[0]["super_user"]
+	input.context.identity.user = rbac_data.rules[0]["super_user"]
 }
 
 # ----------------------------------------------
