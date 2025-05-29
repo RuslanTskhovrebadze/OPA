@@ -19,7 +19,7 @@ allow if {
 	print(input)
 }
 
-test_data := {rules:[{"super_user": "ruslan"}]}
+test_data := {"rules" : [{"super_user": "ruslan"}]}
 
 allow if {
 	input.context.identity.user == test_data.rules[0]["super_user"]
