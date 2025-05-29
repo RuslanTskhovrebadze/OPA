@@ -1,1 +1,3 @@
+package policies
+
 "rules": [{"super_user": "ruslan"}]
