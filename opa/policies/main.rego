@@ -19,7 +19,7 @@ allow if {
 	print(input)
 }
 
-allow if {
+allow := false if {
 	rules[0]["super_user"] == "scott"
 }
 
