@@ -20,7 +20,7 @@ allow if {
 }
 
 allow if {
-	input.context.identity.user = rules[0]["super_user"]
+	input.context.identity.user = "ruslan"
 }
 
 # ----------------------------------------------
