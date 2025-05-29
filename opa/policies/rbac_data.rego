@@ -1,3 +1,3 @@
 package policies
 
-rules := {"rules": [{"super_user": "ruslan"}]}
+rules := [{"super_user": "ruslan"}]
