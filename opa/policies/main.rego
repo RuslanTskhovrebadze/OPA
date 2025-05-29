@@ -21,6 +21,7 @@ allow if {
 
 allow if {
 	rules[0]["super_user"] == "ruslan"
+	print(rules[0]["super_user"])
 }
 
 # ----------------------------------------------
