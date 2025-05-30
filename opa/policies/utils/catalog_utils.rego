@@ -15,7 +15,7 @@ import future.keywords.if
 #    returned_user_catalogs = returned_user_attributes["catalogs"]
 #}
 
-user_can_access_catalog(_, catalog_name) if {
+user_can_access_catalog(user_id, catalog_name) if {
     catalog_name in user_catalogs
 }
 
