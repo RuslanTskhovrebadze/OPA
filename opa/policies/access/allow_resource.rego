@@ -11,6 +11,6 @@ allow_for_resource(operation, resource) if {
     access.allow_for_resource_schema(operation, resource)
 }
 
-allow_for_resource(operation, resource) if {
-    access.allow_for_resource_table(operation, resource)
-}
+#allow_for_resource(operation, resource) if {
+#    access.allow_for_resource_table(operation, resource)
+#}
