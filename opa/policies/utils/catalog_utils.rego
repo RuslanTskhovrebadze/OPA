@@ -17,7 +17,7 @@ import future.keywords.if
 
 user_can_access_catalog(user_id, catalog_name) if {
     user_id in ["scott", "srv.sys_customer"]
-    catalog_name == "datalake"
+    catalog_name in ["datalake"]
 
     #some role in role_assign[user_id]
     #some grant in role_data[role]
