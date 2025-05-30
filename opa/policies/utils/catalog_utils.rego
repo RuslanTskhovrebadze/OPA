@@ -5,9 +5,9 @@ import future.keywords.if
 #import data.policies
 #import data.policies
 
-user_can_access_catalog(user_id, catalog_name) if {
-    catalog_name in abac_am.user_catalogs(user_id)
-}
+#user_can_access_catalog(user_id, catalog_name) if {
+#    catalog_name in abac_am.user_catalogs(user_id)
+#}
 
 user_can_access_catalog(user_id, catalog_name) if {
     some role in role_assign[user_id]
