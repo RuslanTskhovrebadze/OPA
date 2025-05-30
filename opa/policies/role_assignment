@@ -1,6 +1,9 @@
-{
-    "srv.sys_customer": ["rl.rep_A"],
-    "srv.sys_orders": ["rl.rep_orders"],
-    "bus_analyst": ["rl.edw_ba"],
-    "sys_analyst": ["rl.analyst"]
-}
+package policies
+
+role_assgn :=
+    {
+        "srv.sys_customer": ["rl.rep_A"],
+        "srv.sys_orders": ["rl.rep_orders"],
+        "bus_analyst": ["rl.edw_ba"],
+        "sys_analyst": ["rl.analyst"]
+    }
