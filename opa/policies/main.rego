@@ -13,22 +13,6 @@ import data.rbac_data
 import data.role_assignment
 import data.role_grant
 
-user_is_granted contains grant if {
-	some role in role_assign[input.context.identity.user]
-	some grant in role_data[role]
-}
-
-#Проверка прав доступа к каталогу
-allow if {
-	# Find grants for the user.
-    input.action.operation == "AccessCatalog"
-	some grant in user_is_granted
-    input.action.resource.catalog.name == grant.catalog
-
-	# Check if the grant permits the action.
-	#input.action.operation == grant.action
-	##input.action.resource.catalog.name == catalog
-}
 
 
 
@@ -50,7 +34,8 @@ allow if {
 # ----------------------------------------------
 # That section handle the policies for the regular user
 allow if {
-	abac_am.if_user_exists(utils.user_id)
+	#abac_am.if_user_exists(utils.user_id)
+	trace("before allow_resource")
 	access.allow_resource
 }
 
