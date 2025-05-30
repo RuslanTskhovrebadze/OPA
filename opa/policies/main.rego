@@ -42,12 +42,11 @@ allow if {
 # ----------------------------------------------
 # That handle the generic case of batch operations
 
-batch contains i if {
-	trace("inside batch")
-	some i
-	raw_resource := input.action.filterResources[i]
-	allow with input.action.resource as raw_resource
-}
+#batch contains i if {
+#	some i
+#	raw_resource := input.action.filterResources[i]
+#	allow with input.action.resource as raw_resource
+#}
 
 # Corner case: filtering columns is done with a single table item, and many columns inside
 # We cannot use our normal logic in other parts of the policy as they are based on sets
