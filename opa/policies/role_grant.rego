@@ -1,3 +1,6 @@
+package policies
+
+role_data :=
 {
         "rl.rep_customer": [
                 {
