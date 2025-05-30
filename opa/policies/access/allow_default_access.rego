@@ -10,8 +10,6 @@ allow_default_access if {
     allow_execute_query
 }
 
-default allow_default_access := true 
-
 allow_default_access if {
     allow_access_catalog_on_system_catalog
 }
@@ -32,10 +30,12 @@ allow_default_access if {
     allow_sfc_on_table_columns_in_system_catalog
 }
 
-allow_execute_query if {
-	abac_am.if_user_exists(utils.user_id)
-	input.action.operation == "ExecuteQuery"
-}
+allow_execute_query := true
+
+#allow_execute_query if {
+#	abac_am.if_user_exists(utils.user_id)
+#	input.action.operation == "ExecuteQuery"
+#}
 
 # Will run if you'll try to use the dbeaver's GUI
 allow_access_catalog_on_system_catalog if {
