@@ -10,6 +10,8 @@ allow_default_access if {
     allow_execute_query
 }
 
+default allow_default_access := true 
+
 allow_default_access if {
     allow_access_catalog_on_system_catalog
 }
