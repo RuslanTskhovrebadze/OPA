@@ -10,6 +10,27 @@ import future.keywords.contains
 import future.keywords.if
 import future.keywords.in
 import data.rbac_data
+import data.role_assignment
+import data.role_grant
+
+user_is_granted contains grant if {
+	some role in role_assign[input.context.identity.user]
+	some grant in role_data[role]
+}
+
+#Проверка прав доступа к каталогу
+allow if {
+	# Find grants for the user.
+    input.action.operation == "AccessCatalog"
+	some grant in user_is_granted
+    input.action.resource.catalog.name == grant.catalog
+
+	# Check if the grant permits the action.
+	#input.action.operation == grant.action
+	##input.action.resource.catalog.name == catalog
+}
+
+
 
 #  ----------------------------------------------
 # That section handle the policies for the admin user
