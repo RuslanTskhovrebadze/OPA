@@ -26,7 +26,6 @@ user_has_access_to_at_least_one_table(user_id, catalog_name, schema_name) if {
     catalog_name == grant.catalog
 }
 
-
 role_assign :=
     {
         "srv.sys_customer": ["rl.rep_customer"],
