@@ -34,7 +34,6 @@ allow if {
 # That section handle the policies for the regular user
 allow if {
 	#abac_am.if_user_exists(utils.user_id)
-	trace("before allow_resource")
 	access.allow_resource
 }
 
