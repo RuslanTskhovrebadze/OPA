@@ -13,3 +13,28 @@ user_can_access_catalog(user_id, catalog_name) if {
     catalog_name == grant.catalog
 }
 
+role_assign :=
+    {
+        "srv.sys_customer": ["rl.rep_customer"],
+        "srv.sys_orders": ["rl.rep_orders"],
+        "bus_analyst": ["rl.edw_ba"],
+        "sys_analyst": ["rl.analyst"]
+    }
+    
+role_data :=
+{
+        "rl.rep_customer": [
+                {
+                    "action": "read",
+                    "table": "tdh_rep.customer",
+                    "catalog": "datalake"
+                },
+                {
+                    "action": "read",
+                    "table": "tdh_rep.fct_A1",
+                    "catalog": "datalake"
+                }       
+             ]
+}
+
+
