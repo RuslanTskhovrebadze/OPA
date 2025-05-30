@@ -18,7 +18,7 @@ user_can_access_catalog(user_id, catalog_name) if {
 role_assign :=
     {
         "srv.sys_customer": ["rl.rep_customer"],
-        "scott":" ["rl.rep_customer"],
+        "scott": ["rl.rep_customer"],
         "srv.sys_orders": ["rl.rep_orders"],
         "bus_analyst": ["rl.edw_ba"],
         "sys_analyst": ["rl.analyst"]
