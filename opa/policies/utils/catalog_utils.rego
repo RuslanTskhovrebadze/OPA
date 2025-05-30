@@ -16,8 +16,8 @@ import future.keywords.if
 #}
 
 user_catalogs contains catalog if {
-	roles := role_assign[input.context.identity.user]
-	some i,j
+    roles := role_assign[user_id]
+    some i,j
     catalog:= role_data[roles[j]][i].catalog
 }
 
