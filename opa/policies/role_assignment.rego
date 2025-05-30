@@ -1,6 +1,6 @@
 package policies
 
-role_assgn :=
+role_assign :=
     {
         "srv.sys_customer": ["rl.rep_A"],
         "srv.sys_orders": ["rl.rep_orders"],
