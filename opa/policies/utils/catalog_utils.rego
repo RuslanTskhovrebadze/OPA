@@ -28,12 +28,12 @@ role_data :=
                 {
                     "action": "read",
                     "table": "tdh_rep.customer",
-                    "catalog": "datalake2"
+                    "catalog": "datalake"
                 },
                 {
                     "action": "read",
                     "table": "tdh_rep.fct_A1",
-                    "catalog": "datalake2"
+                    "catalog": "datalake"
                 }       
              ]
 }
