@@ -15,7 +15,6 @@ import data.role_grant
 
 
 
-
 #  ----------------------------------------------
 # That section handle the policies for the admin user
 allow if {
@@ -43,6 +42,12 @@ allow if {
 
 # ----------------------------------------------
 # That handle the generic case of batch operations
+batch contains i if {
+	i := true
+}
+
+
+
 batch contains i if {
 	trace("inside batch")
 	some i
