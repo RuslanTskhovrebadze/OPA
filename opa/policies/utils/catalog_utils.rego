@@ -20,7 +20,7 @@ user_can_access_catalog(user_id, catalog_name) if {
 }
 
 user_catalogs contains got_catalog if {
-    roles := role_assign[user_id]
+	some user_id, roles in role_assign
     some i,j
     got_catalog := role_data[roles[j]][i].catalog
 }
