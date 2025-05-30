@@ -12,10 +12,9 @@ user_attributes(user_id) := value if {
 }
 
 if_user_exists(user_id) if {
-#	url := sprintf("http://%v:8081/users", [opa_abac_api])
-#	value := http.send({"method": "GET", "url": url}).body
-	
-	some user in role_assign
+	url := sprintf("http://%v:8081/users", [opa_abac_api])
+	value := http.send({"method": "GET", "url": url}).body	
+	some user in value
 	user == input.context.identity.user
 }
 
