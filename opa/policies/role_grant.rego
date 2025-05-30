@@ -6,48 +6,48 @@ role_data :=
                 {
                     "action": "read",
                     "table": "tdh_rep.customer",
-                    "catalog: "datalake"
+                    "catalog": "datalake"
                 },
                 {
                     "action": "read",
                     "table": "tdh_rep.fct_A1",
-                    "catalog: "datalake"
+                    "catalog": "datalake"
                 }       
              ],
          "rl.rep_orders": [
                 {
                     "action": "read",
                     "table": "tdh_rep.orders",
-                    "catalog: "datalake"
+                    "catalog": "datalake"
                 }
               ],
          "rl.edw_ba": [
                 {
                     "action": "read",
                     "table": "tdh_em.part",
-                    "catalog: "datalake"
+                    "catalog": "datalake"
                 }
               ],
           "rl.analyst": [
                 {
                     "action": "read",
                     "table": "tdh_em.part",
-                    "catalog: "datalake"
+                    "catalog": "datalake"
                 },
                 {
                     "action": "read",
                     "table": "tdh_rv.partsupp",
-                    "catalog: "datalake"
+                    "catalog": "datalake"
                 },
                 {
                     "action": "read",
                     "table": "tdh_rep.orders",
-                    "catalog: "datalake"
+                    "catalog": "datalake"
                 },
                 {
                     "action": "read",
                     "table": "tdh_rep.orders",
-                    "catalog: "datalake"
+                    "catalog": "datalake"
                 }
               ]
      }
