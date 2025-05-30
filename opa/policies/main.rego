@@ -42,11 +42,6 @@ allow if {
 
 # ----------------------------------------------
 # That handle the generic case of batch operations
-batch contains i if {
-	i := true
-}
-
-
 
 batch contains i if {
 	trace("inside batch")
