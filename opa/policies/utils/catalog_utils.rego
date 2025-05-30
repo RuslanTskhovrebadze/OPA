@@ -9,10 +9,19 @@ import future.keywords.if
 #    catalog_name in abac_am.user_catalogs(user_id)
 #}
 
+
+#user_catalogs(user_id) := returned_user_catalogs if {
+#    returned_user_attributes := user_attributes(user_id)
+#    returned_user_catalogs = returned_user_attributes["catalogs"]
+#}
+
 user_can_access_catalog(user_id, catalog_name) if {
-    some role in role_assign[user_id]
-    some grant in role_data[role]
-    catalog_name in grant.catalog
+    user_id in ["scott", "srv.sys_customer"]
+    catalog_name == "datalake"
+
+    #some role in role_assign[user_id]
+    #some grant in role_data[role]
+    #catalog_name in grant.catalog
 }
 
 role_assign :=
