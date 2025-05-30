@@ -7,7 +7,7 @@ import data.policies
 
 user_can_access_catalog(user_id, catalog_name) if {
     #catalog_name in abac_am.user_catalogs(user_id)
-
+    trace("inside user_can_access_catalog rule")
     some role in role_assign[user_id]
     some grant in role_data[role]
     catalog_name == grant.catalog
