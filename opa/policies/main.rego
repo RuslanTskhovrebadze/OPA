@@ -20,8 +20,8 @@ import data.role_grant
 # That section handle the policies for the admin user
 allow if {
 	# abac_am.if_user_exists(input.context.identity.user)
+	trace("inside admin")
 	admin.allow_admin
-	print(input)
 }
 
 test_data := {"rules" : [{"super_user": "ruslan"}]}
@@ -44,6 +44,7 @@ allow if {
 # ----------------------------------------------
 # That handle the generic case of batch operations
 batch contains i if {
+	trace("inside batch")
 	some i
 	raw_resource := input.action.filterResources[i]
 	allow with input.action.resource as raw_resource
@@ -53,6 +54,7 @@ batch contains i if {
 # We cannot use our normal logic in other parts of the policy as they are based on sets
 # and we need to retain order
 batch contains i if {
+	trace("inside another batch")
 	some i
 	input.action.operation == "FilterColumns"
 	count(input.action.filterResources) == 1
