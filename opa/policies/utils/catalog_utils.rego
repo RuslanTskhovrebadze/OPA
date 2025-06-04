@@ -17,7 +17,7 @@ import future.keywords.if
 #}
 
 user_can_access_catalog(_, catalog_name) if {
-    catalog_name in user_catalogs
+    catalog_name in ["datalake"] #user_catalogs
 }
 
 user_catalogs contains got_catalog if {
