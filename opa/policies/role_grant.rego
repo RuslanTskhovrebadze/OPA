@@ -14,7 +14,13 @@ role_data :=
                     "schema": "sf1",
                     "table": "customer",
                     "catalog": "tpch"
-                }       
+                },
+                {
+                    "action": "read",
+                    "schema": "sample",
+                    "table": "supplier",
+                    "catalog": "datalake"
+                } 
              ],
          "rl.rep_orders": [
                 {
