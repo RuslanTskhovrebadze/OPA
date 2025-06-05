@@ -11,7 +11,7 @@ role_data :=
                 },
                 {
                     "action": "read",
-                    "schema": "sf1"
+                    "schema": "sf1",
                     "table": "customer",
                     "catalog": "tpch"
                 }       
