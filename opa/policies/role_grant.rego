@@ -47,7 +47,7 @@ role_data :=
                 {
                     "action": "read",
                     "table": "tdh_rep.orders",
-                    "catalog": "datalake"
+                    "catalog": "tpch"
                 }
               ]
      }
