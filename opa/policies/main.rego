@@ -49,8 +49,21 @@ allow_resource if {
 allow_resource if {
 	operation := input.action.operation
 	resource := input.action.resource
-	access.allow_for_resource(operation, resource)
+	allow_for_resource(operation, resource)
 }
+
+allow_for_resource(operation, resource) if {
+    access.allow_for_resource_catalog(operation, resource)
+}
+
+#allow_for_resource(operation, resource) if {
+#    access.allow_for_resource_schema(operation, resource)
+#}
+
+#allow_for_resource(operation, resource) if {
+#    access.allow_for_resource_table(operation, resource)
+#}
+
 
 # ----------------------------------------------
 
