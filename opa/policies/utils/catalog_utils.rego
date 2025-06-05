@@ -16,24 +16,24 @@ import future.keywords.if
 #    returned_user_catalogs = returned_user_attributes["catalogs"]
 #}
 
-#user_can_access_catalog(_, catalog_name) if {
-#    catalog_name in user_catalogs
-#}
+user_can_access_catalog(_, catalog_name) if {
+    catalog_name in user_catalogs
+}
 
-#user_catalogs contains got_catalog if {
-#    some user_id, roles in role_assign
-#    some i,j
-#    got_catalog := role_data[roles[j]][i].catalog
-#}
+user_catalogs contains got_catalog if {
+    some user_id, roles in role_assign
+    some i,j
+    got_catalog := role_data[roles[j]][i].catalog
+}
 
-user_can_access_catalog(user_id, catalog_name) if {
-    user_id in ["scott","srv.sys_customer"]
-    catalog_name in ["datalake"]
+#user_can_access_catalog(user_id, catalog_name) if {
+#    user_id in ["scott","srv.sys_customer"]
+#    catalog_name in ["datalake"]
 
     #some role in role_assign[user_id]
     #some grant in role_data[role]
     #catalog_name == grant.catalog
-}
+#}
 
 role_assign :=
     {
