@@ -90,6 +90,7 @@ user_can_access_catalog(_, catalog_name) if {
 user_catalogs contains got_catalog if {
     some user_id, roles in role_assign
     some i,j
+	user_id == ut_user_id
     got_catalog := role_data[roles[j]][i].catalog
 }
 
