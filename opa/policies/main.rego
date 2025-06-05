@@ -1,5 +1,10 @@
 package policies
 
+import data.rbac_data
+import data.role_assignment
+import data.role_grant
+
+
 import data.abac_am
 import data.access
 import data.admin
@@ -9,10 +14,7 @@ import data.utils
 import future.keywords.contains
 import future.keywords.if
 import future.keywords.in
-import data.rbac_data
-import data.role_assignment
-import data.role_grant
-
+import input
 
 
 #  ----------------------------------------------
@@ -34,7 +36,20 @@ allow if {
 # That section handle the policies for the regular user
 allow if {
 	#abac_am.if_user_exists(utils.user_id)
-	access.allow_resource
+	#access.allow_resource
+	allow_resource
+}
+
+
+#-----Перенос логики в один файл-----
+allow_resource if {
+	access.allow_default_access
+}
+
+allow_resource if {
+	operation := input.action.operation
+	resource := input.action.resource
+	access.allow_for_resource(operation, resource)
 }
 
 # ----------------------------------------------
