@@ -33,7 +33,7 @@ user_can_access_catalog(user_id, catalog_name) if {
     #some role in role_assign[user_id]
     #some grant in role_data[role]
     #catalog_name == grant.catalog
-#}
+}
 
 role_assign :=
     {
