@@ -56,19 +56,21 @@ allow_for_resource(operation, resource) if {
     allow_for_resource_catalog(operation, resource)
 }
 
+ut_user_id := input.context.identity.user
+
 allow_for_resource_catalog(operation, resource) if {
     operation == "AccessCatalog"
-    utils.user_can_access_catalog(utils.user_id, resource.catalog.name)
+    utils.user_can_access_catalog(ut_user_id, resource.catalog.name)
 }
 
 allow_for_resource_catalog(operation, resource) if {
     operation == "ShowSchemas"
-    utils.user_can_access_catalog(utils.user_id, resource.catalog.name)
+    utils.user_can_access_catalog(ut_user_id, resource.catalog.name)
 }
 
 allow_for_resource_catalog(operation, resource) if {
     operation == "FilterCatalogs"
-    user_can_access_catalog(utils.user_id ,resource.catalog.name)
+    user_can_access_catalog(ut_user_id, resource.catalog.name)
 }
 
 user_can_access_catalog(user_id, catalog_name) if {
