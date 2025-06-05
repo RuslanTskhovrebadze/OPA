@@ -67,9 +67,26 @@ allow_for_resource_catalog(operation, resource) if {
 }
 
 allow_for_resource_catalog(operation, resource) if {
-	operation == "FilterCatalogs"
-    utils.user_can_access_catalog(utils.user_id ,resource.catalog.name)
+    operation == "FilterCatalogs"
+    user_can_access_catalog(utils.user_id ,resource.catalog.name)
 }
+
+user_can_access_catalog(user_id, catalog_name) if {
+    user_id in ["scott","srv.sys_customer"]
+    catalog_name in ["datalake"]
+
+    #some role in role_assign[user_id]
+    #some grant in role_data[role]
+    #catalog_name == grant.catalog
+}
+
+user_catalogs contains got_catalog if {
+    some user_id, roles in role_assign
+    some i,j
+    got_catalog := role_data[roles[j]][i].catalog
+}
+
+
 
 #allow_for_resource(operation, resource) if {
 #    access.allow_for_resource_schema(operation, resource)
