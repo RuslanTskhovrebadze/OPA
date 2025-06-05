@@ -26,7 +26,8 @@ role_data :=
          "rl.edw_ba": [
                 {
                     "action": "read",
-                    "table": "tdh_em.part",
+                    "schema": "tdh_em"
+                    "table": "part",
                     "catalog": "datalake"
                 }
               ],
