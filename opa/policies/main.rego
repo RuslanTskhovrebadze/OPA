@@ -4,13 +4,12 @@ import data.rbac_data
 import data.role_assignment
 import data.role_grant
 
-
-import data.abac_am
-import data.access
 import data.admin
-import data.cms
-import data.rls
-import data.utils
+#import data.abac_am
+#import data.access
+#import data.cms
+#import data.rls
+#import data.utils
 import future.keywords.contains
 import future.keywords.if
 import future.keywords.in
@@ -46,6 +45,15 @@ allow_resource if {
 	access.allow_default_access
 }
 
+allow_default_access if {
+    allow_execute_query
+}
+
+allow_execute_query if {
+	#abac_am.if_user_exists(utils.user_id)
+	input.action.operation == "ExecuteQuery"
+}
+
 allow_resource if {
 	operation := input.action.operation
 	resource := input.action.resource
@@ -60,12 +68,12 @@ ut_user_id := input.context.identity.user
 
 allow_for_resource_catalog(operation, resource) if {
     operation == "AccessCatalog"
-    utils.user_can_access_catalog(ut_user_id, resource.catalog.name)
+    user_can_access_catalog(ut_user_id, resource.catalog.name)
 }
 
 allow_for_resource_catalog(operation, resource) if {
     operation == "ShowSchemas"
-    utils.user_can_access_catalog(ut_user_id, resource.catalog.name)
+    user_can_access_catalog(ut_user_id, resource.catalog.name)
 }
 
 allow_for_resource_catalog(operation, resource) if {
