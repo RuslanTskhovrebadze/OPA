@@ -11,7 +11,7 @@ role_data :=
                 {
                     "action": "read",
                     "table": "tdh_rep.fct_A1",
-                    "catalog": "tpch"
+                    "catalog": "datalake"
                 }       
              ],
          "rl.rep_orders": [
