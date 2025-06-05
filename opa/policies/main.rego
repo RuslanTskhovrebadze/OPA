@@ -143,7 +143,7 @@ batch contains i if {
 #	row_filter := rls.filter
 #}
 
------------
+#-----------
 allow_default_access if {
     allow_access_catalog_on_system_catalog
 }
