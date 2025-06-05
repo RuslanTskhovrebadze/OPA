@@ -96,12 +96,6 @@ user_catalogs contains got_catalog if {
     got_catalog := role_data[roles[j]][i].catalog
 }
 
-#user_can_access_catalog(user_id, catalog_name) if {
-#    user_id in ["scott","srv.sys_customer"]
-#    catalog_name in ["datalake"]
-#}
-
-
 allow_for_resource(operation, resource) if {
     allow_for_resource_schema(operation, resource)
 }
@@ -110,7 +104,7 @@ allow_for_resource_schema(operation, resource) if {
     operation == "ShowTables"
     catalog_name := resource.schema.catalogName
     schema_name := resource.schema.schemaName
-    utils.user_can_access_schema(input_user_id , catalog_name, schema_name)
+    user_can_access_schema(input_user_id , catalog_name, schema_name)
 }
 
 allow_for_resource_schema(operation, resource) if {
@@ -120,10 +114,17 @@ allow_for_resource_schema(operation, resource) if {
     user_can_access_schema(input_user_id , catalog_name, schema_name)
 }
 
-user_can_access_schema(user_id, catalog_name, schema_name) if {
-    tables_of_schema := abac_am.all_tables_in_schema(catalog_name, schema_name)
-    some table_obj in tables_of_schema
-    user_can_access_table(user_id, catalog_name, schema_name, table_obj.table_name)
+user_can_access_schema(_, catalog_name, schema_name) if {
+    schema_name in user_schemas
+    catalog_name in user_catalogs
+
+}
+
+user_schemas contains schemas if {
+    some user_id, roles in role_assign
+    some i,j
+    user_id == input_user_id
+    schemas := role_data[roles[j]][i].schema
 }
 
 user_can_access_table(user_id, catalog_name, schema_name, table_name) if {
