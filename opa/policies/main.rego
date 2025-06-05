@@ -66,21 +66,21 @@ allow_for_resource(operation, resource) if {
     allow_for_resource_catalog(operation, resource)
 }
 
-ut_user_id := input.context.identity.user
+input_user_id := input.context.identity.user
 
 allow_for_resource_catalog(operation, resource) if {
     operation == "AccessCatalog"
-    user_can_access_catalog(ut_user_id, resource.catalog.name)
+    user_can_access_catalog(input_user_id, resource.catalog.name)
 }
 
 allow_for_resource_catalog(operation, resource) if {
     operation == "ShowSchemas"
-    user_can_access_catalog(ut_user_id, resource.catalog.name)
+    user_can_access_catalog(input_user_id, resource.catalog.name)
 }
 
 allow_for_resource_catalog(operation, resource) if {
     operation == "FilterCatalogs"
-    user_can_access_catalog(ut_user_id, resource.catalog.name)
+    user_can_access_catalog(input_user_id, resource.catalog.name)
 }
 
 user_can_access_catalog(_, catalog_name) if {
@@ -90,7 +90,7 @@ user_can_access_catalog(_, catalog_name) if {
 user_catalogs contains got_catalog if {
     some user_id, roles in role_assign
     some i,j
-	user_id == ut_user_id
+    user_id == input_user_id
     got_catalog := role_data[roles[j]][i].catalog
 }
 
