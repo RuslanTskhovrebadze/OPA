@@ -150,9 +150,9 @@ allow_default_access if {
     allow_access_catalog_on_system_catalog
 }
 
-#allow_default_access if {
-#    allow_sfc_on_system_catalog
-#}
+allow_default_access if {
+    allow_sfc_on_system_catalog
+}
 
 #allow_default_access if {
 #    allow_system_catalog_jdbc_schema_tables_table
@@ -178,12 +178,12 @@ allow_access_catalog_on_system_catalog if {
 }
 
 # Will run if you'll try to use the dbeaver's GUI
-#allow_sfc_on_system_catalog if {
-#	input.action.operation == "SelectFromColumns"
-#	input.action.resource.table.catalogName == "system"
- #   input.action.resource.table.schemaName = "jdbc"
-#	input.action.resource.table.tableName in ["catalogs", "types"]
-#}
+allow_sfc_on_system_catalog if {
+	input.action.operation == "SelectFromColumns"
+	input.action.resource.table.catalogName == "system"
+        input.action.resource.table.schemaName = "jdbc"
+	input.action.resource.table.tableName in ["catalogs", "types"]
+}
 
 #allow_system_catalog_jdbc_schema_tables_table if {
 #    input.action.operation == "SelectFromColumns"
