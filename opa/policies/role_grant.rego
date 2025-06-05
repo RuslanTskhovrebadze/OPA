@@ -51,9 +51,7 @@ role_data :=
                     "action": "read",
                     "table": "tdh_rep.orders",
                     "catalog": "tpch"
-                }
-              ],
-              [
+                },
                 {
                     "action": "read",
                     "schema": "tdh_rv",
