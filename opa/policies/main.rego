@@ -135,10 +135,10 @@ batch contains i if {
 #	allow with input.action.resource as new_resources[i]
 #}
 
-columnMask := column_mask if {
-	column_mask := cms.mask
-}
+#columnMask := column_mask if {
+#	column_mask := cms.mask
+#}
 
-rowFilters contains row_filter if {
-	row_filter := rls.filter
-}
+#rowFilters contains row_filter if {
+#	row_filter := rls.filter
+#}
