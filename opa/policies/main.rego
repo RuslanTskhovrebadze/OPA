@@ -126,6 +126,17 @@ user_can_access_schema(user_id, catalog_name, schema_name) if {
     user_can_access_table(user_id, catalog_name, schema_name, table_obj.table_name)
 }
 
+user_can_access_table(user_id, catalog_name, schema_name, table_name) if {
+    table_obj := abac_am.table_attributes(catalog_name, schema_name, table_name)
+    user_has_access_to_at_least_one_column(user_id, catalog_name, schema_name, table_obj)
+}
+
+user_has_access_to_at_least_one_column(user_id, catalog_name, schema_name, table_obj) if {
+    some column_name, column_obj in table_obj.columns_dict
+    utils.user_can_access_column(user_id, catalog_name, schema_name, table_obj, column_name)
+}
+
+
 #allow_for_resource(operation, resource) if {
 #    access.allow_for_resource_table(operation, resource)
 #}
