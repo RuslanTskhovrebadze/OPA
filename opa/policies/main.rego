@@ -138,9 +138,9 @@ user_has_access_to_at_least_one_column(user_id, catalog_name, schema_name, table
 }
 
 
-#allow_for_resource(operation, resource) if {
-#    access.allow_for_resource_table(operation, resource)
-#}
+allow_for_resource(operation, resource) if {
+    access.allow_for_resource_table(operation, resource)
+}
 
 
 # ----------------------------------------------
