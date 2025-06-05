@@ -45,9 +45,9 @@ allow_resource if {
     allow_default_access
 }
 
-allow_default_access if {
-    allow_execute_query
-}
+#allow_default_access if {
+#    allow_execute_query
+#}
 
 allow_execute_query if {
 	#abac_am.if_user_exists(utils.user_id)
