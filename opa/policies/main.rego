@@ -222,9 +222,9 @@ allow_default_access if {
     allow_sfc_on_table_schemas_in_system_catalog
 }
 
-#allow_default_access if {
-#    allow_sfc_on_table_columns_in_system_catalog
-#}
+allow_default_access if {
+    allow_sfc_on_table_columns_in_system_catalog
+}
 
 allow_execute_query if {
 	#abac_am.if_user_exists(utils.user_id)
@@ -260,9 +260,9 @@ allow_sfc_on_table_schemas_in_system_catalog if {
 	input.action.resource.table.tableName == "schemas"
 }
 
-#allow_sfc_on_table_columns_in_system_catalog if {
-#    input.action.operation == "SelectFromColumns"
-#    input.action.resource.table.catalogName = "system"
-#    input.action.resource.table.schemaName = "jdbc"
-#    input.action.resource.table.tableName = "columns"
-#}
+allow_sfc_on_table_columns_in_system_catalog if {
+    input.action.operation == "SelectFromColumns"
+    input.action.resource.table.catalogName = "system"
+    input.action.resource.table.schemaName = "jdbc"
+    input.action.resource.table.tableName = "columns"
+}
