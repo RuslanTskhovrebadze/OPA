@@ -42,7 +42,7 @@ allow if {
 
 #-----Перенос логики в один файл-----
 allow_resource if {
-	access.allow_default_access
+    allow_default_access
 }
 
 allow_default_access if {
