@@ -5,13 +5,15 @@ role_data :=
         "rl.rep_customer": [
                 {
                     "action": "read",
-                    "table": "tdh_rep.customer",
+                    "schema": "tdh_rep",
+                    "table": "customer",
                     "catalog": "datalake"
                 },
                 {
                     "action": "read",
-                    "table": "tdh_rep.fct_A1",
-                    "catalog": "datalake"
+                    "schema": "sf1"
+                    "table": "customer",
+                    "catalog": "tpch"
                 }       
              ],
          "rl.rep_orders": [
