@@ -10,6 +10,8 @@ import data.admin
 #import data.access
 #import data.cms
 #import data.rls
+
+import data.abac_am
 import data.utils
 
 import future.keywords.contains
@@ -115,9 +117,14 @@ allow_for_resource_schema(operation, resource) if {
     operation == "FilterSchemas"
     catalog_name := resource.schema.catalogName
     schema_name := resource.schema.schemaName
-    utils.user_can_access_schema(input_user_id , catalog_name, schema_name)
+    user_can_access_schema(input_user_id , catalog_name, schema_name)
 }
 
+user_can_access_schema(user_id, catalog_name, schema_name) if {
+    tables_of_schema := abac_am.all_tables_in_schema(catalog_name, schema_name)
+    some table_obj in tables_of_schema
+    user_can_access_table(user_id, catalog_name, schema_name, table_obj.table_name)
+}
 
 #allow_for_resource(operation, resource) if {
 #    access.allow_for_resource_table(operation, resource)
