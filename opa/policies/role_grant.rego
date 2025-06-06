@@ -25,8 +25,9 @@ role_data :=
          "rl.rep_orders": [
                 {
                     "action": "read",
-                    "table": "tdh_rep.orders",
-                    "catalog": "tpcds"
+                    "schema": "tdh_rep",
+                    "table": "orders",
+                    "catalog": "datalake"
                 }
               ],
          "rl.edw_ba": [
