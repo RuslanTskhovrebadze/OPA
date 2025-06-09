@@ -35,6 +35,11 @@ allow if {
 	input.context.identity.user ==  rules_data.rules[0]["super_user"]
 }
 
+#Для Minio
+allow if {
+	input.User == "minio"
+}
+
 # ----------------------------------------------
 # That section handle the policies for the regular user
 allow if {
