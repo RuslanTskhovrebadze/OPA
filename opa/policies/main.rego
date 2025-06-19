@@ -47,6 +47,13 @@ allow {
  input.owner == false
 }
 
+# All other users may do anything other than call PutObject
+allow {
+ input.action != "s3:GetObject"
+ input.owner == false
+}
+
+
 # ----------------------------------------------
 # That section handle the policies for the regular user
 allow if {
@@ -54,7 +61,6 @@ allow if {
 	#access.allow_resource
 	allow_resource
 }
-
 
 #-----Перенос логики в один файл-----
 allow_resource if {
