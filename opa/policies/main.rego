@@ -55,7 +55,7 @@ allow if {
 
 allow if {
     input.action == "s3:ListBucket"
-    input.bucket == "datalake/*"
+    input.bucket == "datalake"
     input.conditions.userid == ["foo"]
 }
 
