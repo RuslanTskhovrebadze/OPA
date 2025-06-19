@@ -49,7 +49,7 @@ allow {
 
 allow {
  input.action == "s3:GetObject"
- input.username == "foo"
+ input.account == "foo"
 }
 
 deny {
