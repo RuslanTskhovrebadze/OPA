@@ -48,7 +48,7 @@ allow if {
     input.action == "s3:DeleteBucketPolicy"
     input.action == "s3:ListAllMyBuckets"
     input.action == "s3:ListBucket"
-    input.resource == "arn:aws:s3:::datalake/*"
+    #input.resource == "arn:aws:s3:::datalake/*"
 }
 
 
