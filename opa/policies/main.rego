@@ -43,13 +43,30 @@ allow if {
 
 allow if {
     input.action == "s3:GetBucketLocation"
-    input.action == "s3:PutBucketPolicy"
-    input.action == "s3:GetBucketPolicy"
-    input.action == "s3:DeleteBucketPolicy"
-    input.action == "s3:ListAllMyBuckets"
+    #input.resource == "arn:aws:s3:::datalake/*"
+}
+
+allow if {
+    input.action == "s3:GetObject"
+    #input.resource == "arn:aws:s3:::datalake/*"
+}
+
+allow if {
     input.action == "s3:ListBucket"
     #input.resource == "arn:aws:s3:::datalake/*"
 }
+
+
+#allow if {
+#    input.action == "s3:GetBucketLocation"
+#    input.action == "s3:PutBucketPolicy"
+#    input.action == "s3:GetBucketPolicy"
+#    input.action == "s3:DeleteBucketPolicy"
+#    input.action == "s3:ListAllMyBuckets"
+#    input.action == "s3:ListBucket"
+#    #input.resource == "arn:aws:s3:::datalake/*"
+#}
+
 
 
 # All other users may do anything other than call PutObject
