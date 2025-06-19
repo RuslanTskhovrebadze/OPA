@@ -43,7 +43,7 @@ allow if {
 
 allow if {
     input.action == "s3:GetBucketLocation"
-    input.conditions.userid == ["foo"]
+    input.conditions.userid == "foo"
 }
 
 allow if {
