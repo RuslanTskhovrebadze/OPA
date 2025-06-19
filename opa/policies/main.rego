@@ -41,21 +41,25 @@ allow {
  input.owner == true
 }
 
+allow {
+ input.account == "foo"
+}
+
 # All other users may do anything other than call PutObject
 #deny {
 # input.action == "s3:PutObject"
 # input.owner == false
 #}
 
-allow {
- input.action == "s3:GetObject"
- input.account == "foo"
-}
+#allow {
+# input.action == "s3:GetObject"
+# input.account == "foo"
+#}
 
-deny {
- input.action == "s3:PutObject"
- input.username == "foo"
-}
+#deny {
+# input.action == "s3:PutObject"
+# input.username == "foo"
+#}
 
 
 
