@@ -43,17 +43,19 @@ allow if {
 
 allow if {
     input.action == "s3:GetBucketLocation"
-    input.conditions.userid == "foo"
+    input.conditions.userid == ["foo"]
 }
 
 allow if {
     input.action == "s3:GetObject"
     input.resource == "arn:aws:s3:::datalake/*"
+    input.conditions.userid == ["foo"]
 }
 
 allow if {
     input.action == "s3:ListBucket"
     input.resource == "arn:aws:s3:::datalake/*"
+    input.conditions.userid == ["foo"]
 }
 
 
