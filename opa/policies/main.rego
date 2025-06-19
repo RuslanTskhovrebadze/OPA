@@ -42,7 +42,7 @@ allow {
 }
 
 allow {
- input.account == "foo"
+ input.username == "foo"
 }
 
 # All other users may do anything other than call PutObject
