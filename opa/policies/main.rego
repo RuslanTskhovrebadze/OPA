@@ -38,28 +38,20 @@ allow if {
 #Для Minio
 # Allow the root user to perform any action.
 allow if {
- input.owner == true
-}
-
-allow if {
- input.user == "foo"
+ input.owner != true
 }
 
 # All other users may do anything other than call PutObject
-#deny {
-# input.action == "s3:PutObject"
+#allow {
+# input.action != "s3:PutObject"
 # input.owner == false
 #}
 
-#allow {
-# input.action == "s3:GetObject"
-# input.account == "foo"
+
+#allow if {
+# input.user == "foo"
 #}
 
-#deny {
-# input.action == "s3:PutObject"
-# input.username == "foo"
-#}
 
 
 
