@@ -52,6 +52,16 @@ deny {
  input.owner == false
 }
 
+allow {
+ input.action == "s3:PutObject"
+ input.owner == true
+}
+
+allow {
+ input.action == "s3:GetObject"
+ input.owner == true
+}
+
 
 # ----------------------------------------------
 # That section handle the policies for the regular user
