@@ -42,7 +42,7 @@ allow if {
 }
 
 allow if {
-    input.principal == "foo"
+    input.action == "s3:GetBucketLocation"
 }
 
 
