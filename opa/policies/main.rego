@@ -43,7 +43,7 @@ allow if {
 
 allow if {
     input.action == "s3:GetBucketLocation"
-    input.account == "*"
+    input.account == "foo"
 }
 
 allow if {
