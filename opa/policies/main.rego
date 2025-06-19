@@ -53,7 +53,7 @@ allow if {
 
 allow if {
     input.action == "s3:ListBucket"
-    #input.resource == "arn:aws:s3:::datalake/*"
+    input.resource == "arn:aws:s3:::datalake/*"
 }
 
 
