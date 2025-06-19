@@ -43,7 +43,8 @@ allow if {
 
 allow if {
     input.action == "s3:GetBucketLocation"
-    input.groups == "read_group"
+    #input.groups == "read_group"
+    input.conditions.userid == ["foo"]
 }
 
 allow if {
