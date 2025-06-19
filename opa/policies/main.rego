@@ -49,7 +49,7 @@ allow if {
 
 allow if {
     input.action == "s3:GetObject"
-    input.resource == "arn:aws:s3:::datalake/*"
+    input.resource == "datalake/*" #"arn:aws:s3:::
     input.conditions.userid == ["foo"]
 }
 
