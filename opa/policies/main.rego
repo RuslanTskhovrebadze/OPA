@@ -43,7 +43,7 @@ allow if {
 
 allow if {
     input.action == "s3:GetBucketLocation"
-    #input.resource == "arn:aws:s3:::datalake/*"
+    input.group = "reader"
 }
 
 allow if {
