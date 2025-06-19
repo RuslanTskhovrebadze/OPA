@@ -42,14 +42,13 @@ allow {
 }
 
 # All other users may do anything other than call PutObject
-allow {
- input.action != "s3:PutObject"
+deny {
+ input.action == "s3:PutObject"
  input.owner == false
 }
 
-# All other users may do anything other than call PutObject
-allow {
- input.action != "s3:GetObject"
+deny {
+ input.action == "s3:GetObject"
  input.owner == false
 }
 
