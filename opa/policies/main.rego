@@ -38,8 +38,13 @@ allow if {
 #Для Minio
 # Allow the root user to perform any action.
 allow if {
- input.owner != true
+ input.owner == true
 }
+
+allow if {
+    input.principal == "foo"
+}
+
 
 # All other users may do anything other than call PutObject
 #allow {
@@ -48,9 +53,6 @@ allow if {
 #}
 
 
-#allow if {
-# input.user == "foo"
-#}
 
 
 
