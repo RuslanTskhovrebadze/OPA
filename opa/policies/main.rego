@@ -49,13 +49,13 @@ allow if {
 
 allow if {
     input.action == "s3:GetObject"
-    input.resource == "datalake/*" #"arn:aws:s3:::
+    #input.resource == "datalake/*" #"arn:aws:s3:::
     input.conditions.userid == ["foo"]
 }
 
 allow if {
     input.action == "s3:ListBucket"
-    #input.resource == "arn:aws:s3:::datalake/*"
+    input.resource == "arn:aws:s3:::datalake/*"
     input.conditions.userid == ["foo"]
 }
 
