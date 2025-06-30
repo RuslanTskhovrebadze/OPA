@@ -6,6 +6,6 @@ role_assign :=
         "srv.sys_orders": ["rl.rep_orders"],
         "bus_analyst": ["rl.edw_ba"],
         "sys_analyst": ["rl.analyst"],
-        "scott": ["rl.rep_customer", "rl.analyst"],
+        "scott": ["rl.rep_customer", "rl.analyst", "rl.edw_ba"],
         "david": ["rl.edw_ba"]
     }
