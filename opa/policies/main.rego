@@ -37,7 +37,7 @@ allow if {
 
 #Для Minio
 # Allow the root user to perform any action.
-deny if {
+allow if {
  input.owner == true
 }
 
