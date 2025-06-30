@@ -44,20 +44,23 @@ allow if {
 allow if {
     input.action == "s3:GetBucketLocation"
     #input.groups == "read_group"
-    input.conditions.userid == ["david"]
+    #input.conditions.userid == ["david"]
+    input.userid == ["david"]
 }
 
 allow if {
     #input.action == "s3:GetObject"
     #input.resource == "datalake/*" #"arn:aws:s3:::
     #input.bucket == "datalake"
-    input.conditions.userid == ["david"]
+    #input.conditions.userid == ["david"]
+    input.userid == ["david"]
 }
 
 allow if {
     #input.action == "s3:ListBucket"
     #input.bucket == "datalake"
-    input.conditions.userid == ["david"]
+    #input.conditions.userid == ["david"]
+    input.userid == ["david"]
 }
 
 
